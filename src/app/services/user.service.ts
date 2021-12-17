@@ -4,10 +4,9 @@ import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   private url = environment.apiBaseUrl;
   profileData = new BehaviorSubject(this.getProfileData());
   constructor(private http: HttpClient) {}
@@ -30,12 +29,5 @@ export class UserService {
   public getProfileData(): any {
     const userData: any = localStorage.getItem('machineTestUser');
     return userData ? JSON.parse(userData) : null;
-  }
-
-  public logout() {
-    // CometChat.logout();
-    // localStorage.removeItem(LOCALSTORAGE_USER);
-    // localStorage.removeItem(COMETCHAT_LOGGEDIN_USER);
-    return true;
   }
 }

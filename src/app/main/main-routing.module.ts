@@ -9,21 +9,21 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
     children: [
-      { path: "", redirectTo: "profile", pathMatch: "full" },
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
       {
-        path: "profile",
+        path: 'profile',
         component: ProfileComponent,
       },
       {
-        path: "users",
+        path: 'users',
         component: UsersComponent,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MainRoutingModule { }
+export class MainRoutingModule {}

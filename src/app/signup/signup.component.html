@@ -3,7 +3,13 @@
     <h2>Sign Up</h2>
     <p>
       <label for="Name" class="floatLabel">Name</label>
-      <input id="Name" name="Name" type="text" formControlName="name" autocomplete="off" />
+      <input
+        id="Name"
+        name="Name"
+        type="text"
+        formControlName="name"
+        autocomplete="off"
+      />
       <span
         *ngIf="
           signupForm?.controls?.name?.invalid &&
@@ -110,10 +116,17 @@
       >
     </p>
     <p>
-      <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Sign Up' }}</button>
+      <button
+        class="btn btn-primary"
+        (click)="onSubmit()"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? "Loading" : "Sign Up" }}
+      </button>
     </p>
     <p>
-        Already have an account, <a href="javascript:void(0)" routerLink="/signin">Sign In</a>
+      Already have an account,
+      <a href="javascript:void(0)" routerLink="/signin">Sign In</a>
     </p>
   </form>
 </div>

@@ -10,19 +10,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgbToastModule } from 'ngb-toast';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignupComponent,
-    SigninComponent
-  ],
+  declarations: [AppComponent, SignupComponent, SigninComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbToastModule
+    NgbToastModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -7,20 +7,14 @@ import { UsersComponent } from './users/users.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
-  declarations: [
-    MainComponent,
-    ProfileComponent,
-    UsersComponent
-  ],
+  declarations: [MainComponent, ProfileComponent, UsersComponent],
   imports: [
     CommonModule,
     MainRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  bootstrap: [MainComponent]
+  bootstrap: [MainComponent],
 })
-export class MainModule { }
+export class MainModule {}
