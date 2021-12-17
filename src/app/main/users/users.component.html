@@ -1,0 +1,29 @@
+<div class="component-wrapper users-wrapper">
+    <h1>List Of All Users</h1>
+
+  <div class="table-wrapper">
+    <table class="users-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone No</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="isLoading">
+        <tr>
+          <td colspan="4" style="text-align: center;">Loading...</td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!isLoading">
+        <tr *ngFor="let user of users">
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone_no}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

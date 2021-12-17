@@ -1,0 +1,103 @@
+<div class="component-wrapper profile-wrapper" [ngClass]="{'edit-card': isEdit}">
+  <!-- <div class="card"> -->
+  <div class="card-body" *ngIf="!isEdit">
+    <button class="btn btn-primary btn-sm edit rounded" (click)="onEdit()">
+      Edit
+    </button>
+    <table class="profile-table">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>:</td>
+          <td>{{ profileData?.name }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>:</td>
+          <td>{{ profileData?.email }}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>:</td>
+          <td>{{ profileData?.phone_no }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card-body" *ngIf="isEdit">
+    <form [formGroup]="profileForm">
+      <p>
+        <label for="Name" class="floatLabel">Name</label>
+        <input id="Name" name="Name" type="text" formControlName="name" />
+        <span
+          *ngIf="
+            profileForm?.controls?.name?.errors?.required &&
+            (profileForm?.controls?.name?.dirty ||
+              profileForm?.controls?.name?.touched)
+          "
+          >Name Is Required.</span
+        >
+      </p>
+      <p>
+        <label for="Email" class="floatLabel">Email</label>
+        <input id="Email" name="Email" type="text" formControlName="email" />
+        <span
+          *ngIf="
+            profileForm?.controls?.email?.errors?.required &&
+            (profileForm?.controls?.email?.dirty ||
+              profileForm?.controls?.email?.touched)
+          "
+          >Email Is Required.</span
+        >
+        <span
+        *ngIf="
+          profileForm?.controls?.email?.errors?.email &&
+          (profileForm?.controls?.email?.dirty ||
+            profileForm?.controls?.email?.touched)
+        "
+        >Please Enter Valid Email</span
+      >
+      </p>
+      <p>
+        <label for="Phone" class="floatLabel">Phone Number</label>
+        <input id="Phone" name="Phone" type="text" formControlName="phone_no" />
+        <span
+          *ngIf="
+            profileForm?.controls?.phone_no?.errors?.required &&
+            (profileForm?.controls?.phone_no?.dirty ||
+              profileForm?.controls?.phone_no?.touched)
+          "
+          >Phone Number Is Required.</span
+        >
+        
+      <span
+      *ngIf="
+        profileForm?.controls?.phone_no?.errors?.pattern &&
+        (profileForm?.controls?.phone_no?.dirty ||
+          profileForm?.controls?.phone_no?.touched)
+      "
+      >Please Enter Valid Phone Number</span
+    >
+    <span
+      *ngIf="
+        profileForm?.controls?.phone_no?.errors?.maxlength &&
+        (profileForm?.controls?.phone_no?.dirty ||
+          profileForm?.controls?.phone_no?.touched)
+      "
+      >Phone Number Should Not Be More Than 10 Characters</span
+    >
+      </p>
+      <p>
+        <button class="btn btn-primary rounded" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Update' }}</button>
+        <button
+        class="btn btn-primary rounded"
+        (click)="isEdit = false"
+        style="margin-left: 12px;"
+        >
+        Cancel
+      </button>
+      </p>
+    </form>
+  </div>
+  <!-- </div> -->
+</div>

@@ -1,0 +1,26 @@
+.profile-wrapper {
+  position: relative;
+  padding-top: 20px;
+}
+
+.edit-card {
+  padding: 50px 50px 50px 50px;
+}
+
+.profile-table {
+  border: none;
+  font-size: 16px;
+  height: 150px;
+  width: 80%;
+}
+
+.edit {
+  position: absolute;
+  color: #e7e7e8;
+  right: 10%;
+}
+
+form p {
+  margin: 0 0 1em 0;
+  position: relative;
+}

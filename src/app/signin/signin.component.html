@@ -1,0 +1,46 @@
+<div class="component-wrapper">
+    <form [formGroup]="signinForm">
+      <h2>Sign In</h2>
+      <p>
+        <label for="Email" class="floatLabel">Email</label>
+        <input id="Email" name="Email" type="text" formControlName="email" />
+        <span
+          *ngIf="
+            signinForm?.controls?.email?.errors?.required &&
+            (signinForm?.controls?.email?.dirty ||
+              signinForm?.controls?.email?.touched)
+          "
+          >Please Enter Email</span
+        >
+        <span
+          *ngIf="
+            signinForm?.controls?.email?.errors?.email &&
+            (signinForm?.controls?.email?.dirty ||
+              signinForm?.controls?.email?.touched)
+          "
+          >Please Enter Valid Email</span
+        >
+      </p>
+      <p>
+        <label for="password" class="floatLabel">Password</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          formControlName="password"
+        />
+        <span
+          *ngIf="
+            signinForm?.controls?.password?.invalid &&
+            (signinForm?.controls?.password?.dirty ||
+              signinForm?.controls?.password?.touched)
+          "
+          >Please Enter Password</span
+        >
+      </p>
+      <p>
+        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Login' }}</button>
+      </p>
+    </form>
+  </div>
+  

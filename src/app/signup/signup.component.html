@@ -1,0 +1,116 @@
+<div class="component-wrapper">
+  <form [formGroup]="signupForm">
+    <h2>Sign Up</h2>
+    <p>
+      <label for="Name" class="floatLabel">Name</label>
+      <input id="Name" name="Name" type="text" formControlName="name" autocomplete="off" />
+      <span
+        *ngIf="
+          signupForm?.controls?.name?.invalid &&
+          (signupForm?.controls?.name?.dirty ||
+            signupForm?.controls?.name?.touched)
+        "
+        >Please Enter Name</span
+      >
+    </p>
+    <p>
+      <label for="Email" class="floatLabel">Email</label>
+      <input id="Email" name="Email" type="text" formControlName="email" />
+      <span
+        *ngIf="
+          signupForm?.controls?.email?.errors?.required &&
+          (signupForm?.controls?.email?.dirty ||
+            signupForm?.controls?.email?.touched)
+        "
+        >Please Enter Email</span
+      >
+      <span
+        *ngIf="
+          signupForm?.controls?.email?.errors?.email &&
+          (signupForm?.controls?.email?.dirty ||
+            signupForm?.controls?.email?.touched)
+        "
+        >Please Enter Valid Email</span
+      >
+    </p>
+    <p>
+      <label for="phone_no" class="floatLabel">Phone Number</label>
+      <input
+        id="phone_no"
+        name="phone_no"
+        type="text"
+        formControlName="phone_no"
+      />
+      <span
+        *ngIf="
+          signupForm?.controls?.phone_no?.errors?.required &&
+          (signupForm?.controls?.phone_no?.dirty ||
+            signupForm?.controls?.phone_no?.touched)
+        "
+        >Please Enter Phone Number</span
+      >
+      <span
+        *ngIf="
+          signupForm?.controls?.phone_no?.errors?.pattern &&
+          (signupForm?.controls?.phone_no?.dirty ||
+            signupForm?.controls?.phone_no?.touched)
+        "
+        >Please Enter Valid Phone Number</span
+      >
+      <span
+        *ngIf="
+          signupForm?.controls?.phone_no?.errors?.maxlength &&
+          (signupForm?.controls?.phone_no?.dirty ||
+            signupForm?.controls?.phone_no?.touched)
+        "
+        >Phone Number Should Not Be More Than 10 Characters</span
+      >
+    </p>
+    <p>
+      <label for="password" class="floatLabel">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        formControlName="password"
+      />
+      <span
+        *ngIf="
+          signupForm?.controls?.password?.invalid &&
+          (signupForm?.controls?.password?.dirty ||
+            signupForm?.controls?.password?.touched)
+        "
+        >Please Enter Password</span
+      >
+    </p>
+    <p>
+      <label for="confirm_password" class="floatLabel">Confirm Password</label>
+      <input
+        id="confirm_password"
+        name="confirm_password"
+        type="password"
+        formControlName="confirm_password"
+      />
+      <span
+        *ngIf="
+          signupForm?.controls?.confirm_password?.invalid &&
+          (signupForm?.controls?.confirm_password?.dirty ||
+            signupForm?.controls?.confirm_password?.touched)
+        "
+        >Please Enter Confirm Password</span
+      >
+      <span
+        *ngIf="
+          signupForm?.controls?.confirm_password?.valid &&
+          signupForm.value.password !== signupForm.value.confirm_password &&
+          (signupForm?.controls?.confirm_password?.dirty ||
+            signupForm?.controls?.confirm_password?.touched)
+        "
+        >Your passwords do not match</span
+      >
+    </p>
+    <p>
+      <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Submit' }}</button>
+    </p>
+  </form>
+</div>
