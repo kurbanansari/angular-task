@@ -18,6 +18,6 @@ export class MainComponent {
   getProfileName() {
     var matches = this.profileData?.name?.match(/\b(\w)/g);
     console.log(matches)
-    return matches.join('').toUpperCase();
+    return matches ? matches.join('').toUpperCase() : this.profileData?.name[0].toUpperCase();
   }
 }
