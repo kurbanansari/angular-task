@@ -39,7 +39,10 @@
         >
       </p>
       <p>
-        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Login' }}</button>
+        <button class="btn btn-primary" (click)="onSubmit()" [disabled]="isLoading">{{isLoading ? 'Loading': 'Sign In' }}</button>
+      </p>
+      <p>
+          Don't have an account, <a href="javascript:void(0)" routerLink="/signup">Sign Up</a>
       </p>
     </form>
   </div>
