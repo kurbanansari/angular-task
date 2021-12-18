@@ -48,6 +48,7 @@ export class SigninComponent implements OnInit {
             'machineTestUser',
             JSON.stringify(result.response)
           );
+          this._userService.profileData.next(result.response);
           this._toastService.show({
             toastType: NgbToastType.Success,
             text: 'Logged in successfully.',
